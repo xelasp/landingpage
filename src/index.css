@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Variáveis CSS globais ── */
+:root {
+  --azul-escuro:  #0A1F44;
+  --azul-medio:   #1A3A6B;
+  --azul-claro:   #2979C8;
+  --azul-brilho:  #4DA6FF;
+  --dourado:      #C9A84C;
+  --dourado-claro:#F0CC6E;
+  --cinza-suave:  #F4F7FC;
+  --cinza-texto:  #5A6A80;
+  --urgencia:     #E03B3B;
+}
+
+/* ── Base ── */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Lato', sans-serif;
+  background: #fff;
+  color: var(--azul-escuro);
+  overflow-x: hidden;
+}
+
+/* ── Animações ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 4px 14px rgba(39,201,63,0.4); }
+  50%       { box-shadow: 0 4px 22px rgba(39,201,63,0.7); }
+}
+
+@keyframes bounce-slow {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-6px); }
+}
+
+/* ── Reveal on scroll ── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Hero animações ── */
+.hero-badge  { animation: fadeUp 0.6s ease both; }
+.hero-h1     { animation: fadeUp 0.7s ease 0.1s both; }
+.hero-sub    { animation: fadeUp 0.7s ease 0.2s both; }
+.hero-ctas   { animation: fadeUp 0.7s ease 0.3s both; }
+.hero-visual { animation: fadeUp 0.8s ease 0.35s both; }
+
+/* ── Badge ONLINE ── */
+.badge-live { animation: pulse-glow 2s infinite; }
+
+/* ── WhatsApp float ── */
+.whatsapp-float { animation: bounce-slow 3s infinite; }
+
+/* ── FAQ accordion ── */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.faq-answer.open { max-height: 300px; }
+
+.faq-arrow {
+  transition: transform 0.3s;
+  color: var(--dourado);
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.faq-arrow.open { transform: rotate(45deg); }
+
+/* ── Linha conectora "Como Funciona" ── */
+@media (min-width: 640px) {
+  .como-connector::after {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--azul-claro), var(--dourado));
+    z-index: 0;
+  }
+}
+
+/* ── CTA Final padrão de pontos ── */
+.cta-dots::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%232979C8' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+/* ── Bene card faixa lateral ── */
+.bene-card-bar::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 4px; height: 100%;
+  background: linear-gradient(180deg, var(--dourado), var(--azul-claro));
+}
