@@ -1,4 +1,4 @@
-const WA_LINK = 'https://wa.me/5511999999999'
+const WA_LINK = 'https://wa.me/5511998293870'
 
 export default function WhatsAppFloat() {
   return (

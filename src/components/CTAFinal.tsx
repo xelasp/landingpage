@@ -1,4 +1,4 @@
-const WA_LINK = 'https://wa.me/5511999999999?text=Olá!%20Quero%20criar%20meu%20site%20que%20converte.'
+const WA_LINK = 'https://wa.me/5511998293870?text=Olá!%20Quero%20criar%20meu%20site%20que%20converte.'
 
 export default function CTAFinal() {
   return (
