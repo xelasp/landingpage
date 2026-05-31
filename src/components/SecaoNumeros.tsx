@@ -1,8 +1,8 @@
 const numeros = [
-  { num: '75', sup: '%', lbl: 'dos usuários julgam a credibilidade de um negócio pelo site' },
-  { num: '53', sup: '%', lbl: 'abandonam sites que demoram mais de 3s para carregar' },
+  { num: '✔', sup: '', lbl: 'Estudos mostram que a aparência e a experiência do site são fatores decisivos para a percepção de credibilidade de uma empresa' },
+  { num: '53', sup: '%', lbl: 'dos usuários móveis abandonam um site que leva mais de 3 segundos para carregar' },
   { num: '81', sup: '%', lbl: 'dos consumidores pesquisam online antes de tomar uma decisão de compra' },
-  { num: '🚀',  sup: '', lbl: 'mais conversão com design profissional vs site amador' },
+  { num: '🚀',  sup: '', lbl: 'Um design profissional aumenta significativamente a confiança e as taxas de conversão dos visitantes' },
 ]
 
 export default function SecaoNumeros() {
