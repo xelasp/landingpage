@@ -1,5 +1,5 @@
 const numeros = [
-  { num: '✔', sup: '', lbl: 'Estudos mostram que a aparência e a experiência do site são fatores decisivos para a percepção de credibilidade de uma empresa' },
+  { num: '✔', sup: '', lbl: 'Estudos mostram que a aparência do site é um fator decisivo para a percepção de credibilidade de uma empresa' },
   { num: '53', sup: '%', lbl: 'dos usuários móveis abandonam um site que leva mais de 3 segundos para carregar' },
   { num: '81', sup: '%', lbl: 'dos consumidores pesquisam online antes de tomar uma decisão de compra' },
   { num: '🚀',  sup: '', lbl: 'Um design profissional aumenta significativamente a confiança e as taxas de conversão dos visitantes' },

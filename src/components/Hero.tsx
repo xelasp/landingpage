@@ -65,7 +65,7 @@ export default function Hero() {
 
                 <div className="grid grid-cols-3 gap-[10px] mb-4">
                   {[
-                    { num: '+247%', lbl: 'Conversão' },
+                    { num: '3x', lbl: 'Conversão' },
                     { num: '1,8s',  lbl: 'Velocidade' },
                     { num: '#1',    lbl: 'Google' },
                   ].map((s) => (
