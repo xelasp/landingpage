@@ -1,8 +1,8 @@
 const numeros = [
   { num: '75', sup: '%', lbl: 'dos usuários julgam a credibilidade de um negócio pelo site' },
   { num: '53', sup: '%', lbl: 'abandonam sites que demoram mais de 3s para carregar' },
-  { num: '81', sup: '%', lbl: 'pesquisam online antes de comprar qualquer produto/serviço' },
-  { num: '3',  sup: 'x', lbl: 'mais conversão com design profissional vs site amador' },
+  { num: '81', sup: '%', lbl: 'dos consumidores pesquisam online antes de tomar uma decisão de compra' },
+  { num: '🚀',  sup: '', lbl: 'mais conversão com design profissional vs site amador' },
 ]
 
 export default function SecaoNumeros() {
