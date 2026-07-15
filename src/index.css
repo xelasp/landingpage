@@ -2,7 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ── Variáveis CSS globais ── */
 :root {
   --azul-escuro:  #0A1F44;
   --azul-medio:   #1A3A6B;
@@ -15,7 +14,6 @@
   --urgencia:     #E03B3B;
 }
 
-/* ── Base ── */
 html { scroll-behavior: smooth; }
 
 body {
@@ -25,77 +23,45 @@ body {
   overflow-x: hidden;
 }
 
-/* ── Animações ── */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(28px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 4px 14px rgba(39,201,63,0.4); }
-  50%       { box-shadow: 0 4px 22px rgba(39,201,63,0.7); }
-}
-
-@keyframes bounce-slow {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-6px); }
-}
-
-/* ── Reveal on scroll ── */
+/* ── Scroll reveal ── */
 .reveal {
   opacity: 0;
   transform: translateY(32px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
+.reveal.visible { opacity: 1; transform: translateY(0); }
 
-/* ── Hero animações ── */
+/* ── Hero animations ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
 .hero-badge  { animation: fadeUp 0.6s ease both; }
 .hero-h1     { animation: fadeUp 0.7s ease 0.1s both; }
 .hero-sub    { animation: fadeUp 0.7s ease 0.2s both; }
 .hero-ctas   { animation: fadeUp 0.7s ease 0.3s both; }
 .hero-visual { animation: fadeUp 0.8s ease 0.35s both; }
 
-/* ── Badge ONLINE ── */
-.badge-live { animation: pulse-glow 2s infinite; }
-
-/* ── WhatsApp float ── */
-.whatsapp-float { animation: bounce-slow 3s infinite; }
-
-/* ── FAQ accordion ── */
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.4s ease;
+/* ── WhatsApp float pulse ring ── */
+@keyframes wa-pulse {
+  0%   { transform: scale(1); opacity: .55; }
+  100% { transform: scale(1.9); opacity: 0; }
 }
-.faq-answer.open { max-height: 300px; }
 
-.faq-arrow {
-  transition: transform 0.3s;
-  color: var(--dourado);
-  font-size: 1.2rem;
-  flex-shrink: 0;
-}
-.faq-arrow.open { transform: rotate(45deg); }
-
-/* ── Linha conectora "Como Funciona" ── */
-@media (min-width: 640px) {
+/* ── Linha conectora Como Funciona ── */
+@media (min-width: 1024px) {
   .como-connector::after {
     content: '';
     position: absolute;
     top: 40px;
-    left: 10%;
-    right: 10%;
+    left: 10%; right: 10%;
     height: 2px;
     background: linear-gradient(90deg, var(--azul-claro), var(--dourado));
     z-index: 0;
   }
 }
 
-/* ── CTA Final padrão de pontos ── */
+/* ── CTA dots bg ── */
 .cta-dots::before {
   content: '';
   position: absolute;
@@ -104,11 +70,54 @@ body {
   pointer-events: none;
 }
 
-/* ── Bene card faixa lateral ── */
+/* ── Bene card sidebar ── */
 .bene-card-bar::after {
   content: '';
   position: absolute;
   top: 0; left: 0;
   width: 4px; height: 100%;
   background: linear-gradient(180deg, var(--dourado), var(--azul-claro));
+}
+
+/* ── FAQ accordion ── */
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.faq-answer.open { max-height: 300px; }
+.faq-arrow { transition: transform 0.3s; color: var(--dourado); font-size: 1.2rem; flex-shrink: 0; }
+.faq-arrow.open { transform: rotate(45deg); }
+
+/* ── WhatsApp label tooltip ── */
+.wa-label {
+  position: absolute;
+  right: 74px;
+  top: 50%;
+  transform: translateY(-50%) translateX(8px);
+  background: var(--azul-escuro);
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  font-size: .8rem;
+  padding: .6em 1em;
+  border-radius: 4px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .2s ease, transform .2s ease;
+  box-shadow: 0 8px 20px -8px rgba(0,0,0,.4);
+}
+.wa-label::after {
+  content: '';
+  position: absolute;
+  right: -5px; top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 10px; height: 10px;
+  background: var(--azul-escuro);
+}
+.wa-float:hover .wa-label { opacity: 1; transform: translateY(-50%) translateX(0); }
+
+@media (max-width: 560px) {
+  .wa-label { display: none; }
 }
